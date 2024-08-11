@@ -5,7 +5,7 @@
                 <img class="w-full" src="/resources/assets/Vector.svg" alt="">
             </div>
             <div class="relative">
-                <input type="text" class="barra_pesquisa" placeholder="O que esta procurando...">
+                <input type="text" class="inputActive barra_pesquisa" placeholder="O que esta procurando...">
                 <input id="lupa" type="submit" value="Buscar" class="max-w-6 w-full absolute" >
             </div>
             <nav class="flex gap-7 mx-3 items-center">
@@ -41,7 +41,7 @@ export default {
         border-radius: 15px;
         border: 1px solid #CECECE;
     }
-    .barra_pesquisa:focus{
+    .inputActive:focus{
         outline: none;
         border: 1px solid #FF6E00;
     }
