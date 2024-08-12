@@ -1,5 +1,5 @@
 <template>
-    <header class="h-24 w-screen flex justify-center mb-14">
+    <header class="h-24 flex justify-center mb-14">
         <div class="h-full max-w-screen-2xl w-full flex items-center justify-between px-10">
             <div class="max-w-16 logo">
                 <img class="w-full" src="/resources/assets/Vector.svg" alt="">

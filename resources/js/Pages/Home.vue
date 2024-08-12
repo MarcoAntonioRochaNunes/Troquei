@@ -14,7 +14,8 @@
         </div>
 
         <div class="bannerTwo flex gap-4 my-10 px-5">
-            <CarouselView :items="items" class="bannerTwo_one rounded-xl overflow-hidden" />
+            <CarouselView :items="items" class="bannerTwo_one rounded-xl overflow-hidden" >
+            </CarouselView>
 
             <div class="bannerTwo_two rounded-xl overflow-hidden bg-black relative">
                 <img :src="lampadas" class="h-full w-full object-cover opacity-90" alt="">
@@ -37,6 +38,10 @@
         <ListaProdutos :image="laptop">
             <h1 class="font-semibold text-2xl text-neutral-700">Novos Produtos</h1>
         </ListaProdutos>
+
+        <CategoriaView>
+            <h1 class="font-semibold text-2xl text-neutral-700">Categorias</h1>
+        </CategoriaView>
     </section>
 </template>
 
@@ -44,12 +49,14 @@
 import HeaderView from '../../components/HeaderView.vue';
 import CarouselView from '../../components/CarouseulView.vue';
 import ListaProdutos from '../../components/ListaProdutos.vue';
+import CategoriaView from '../../components/CategoriaView.vue';
 
 export default {
     components:{
         HeaderView,
         CarouselView,
         ListaProdutos,
+        CategoriaView,
     },
     data(){
         return {
