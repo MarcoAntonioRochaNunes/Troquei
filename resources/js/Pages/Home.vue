@@ -14,16 +14,12 @@
                     type="text"
                     placeholder="Estou procurando por..."
                 />
-                <input
-                    class="border-solid border-2 border-neutral-300 h-12 rounded-xl px-5 mx-1 w-56"
-                    type="text"
-                    placeholder="Categoria"
-                />
-                <input
-                    class="border-solid border-2 border-neutral-300 h-12 rounded-xl px-5 mx-1 w-56"
-                    type="text"
-                    placeholder="Estado"
-                />
+                <select name="categoia" id="categoria" class="border-solid border-2 border-neutral-300 h-12 rounded-xl px-5 mx-1 w-56 text-neutral-400">
+                    <option value="">Categoria</option>
+                </select>
+                <select name="estado" id="estado" class="border-solid border-2 border-neutral-300 h-12 rounded-xl px-5 mx-1 w-56 text-neutral-400 ">
+                    <option value="">Estado</option>
+                </select>
                 <button
                     type="submit"
                     class="text-sm font-semibold bg-orange-600 rounded-md text-slate-50 BotaoHome"
@@ -33,7 +29,7 @@
             </form>
         </div>
 
-        <div class="bannerTwo flex gap-4 my-10 px-5">
+        <div class="bannerTwo flex gap-4 my-10 px-5 max-w-screen-xl">
             <CarouselView
                 :items="items"
                 :type="nome"
@@ -150,15 +146,7 @@ export default {
 };
 </script>
 
-// <script setup>
-// import { computed, defineProps } from "vue";
-// const props = defineProps({
-//     title: {
-//         type: String,
-//         required: true,
-//     },
-// });
-// </script>
+
 
 <style scoped>
 .BotaoHome {
@@ -167,7 +155,8 @@ export default {
 .BotaoHome:hover {
     background-color: rgb(249 115 22);
 }
-form input:focus {
+form input:focus,
+select:focus {
     outline: none;
     border: 1px solid #ff6e00;
 }
