@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="flex justify-center gap-5 bg-[red]">
+        <div class="flex justify-center gap-5 max-w-screen-xl flex-wrap">
             <div class="w-[550px] h-[200px] rounded-xl border-double border-4 border-neutral-300 grid grid-cols-2 gap-5
             ">
                 <div class="w-[250px] h-[180px] self-center ml-2 carrosel_produto">
