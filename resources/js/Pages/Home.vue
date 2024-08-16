@@ -7,7 +7,7 @@
         <h1 class="font-semibold text-5xl mt-8 text-neutral-700">
             O que você está procurando?
         </h1>
-        <div class="">
+        <div>
             <form class="mt-10 justify-center flex">
                 <input
                     class="border-solid border-2 border-neutral-300 h-12 rounded-xl px-5 mx-1 w-96"
