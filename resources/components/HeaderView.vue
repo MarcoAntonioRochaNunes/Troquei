@@ -8,13 +8,20 @@
                 <input type="text" class="inputActive barra_pesquisa" placeholder="O que esta procurando...">
                 <input id="lupa" type="submit" value="Buscar" class="max-w-6 w-full absolute" >
             </div>
+            <!-- {{user}} -->
             <nav class="flex gap-7 mx-3 items-center">
-                <button class="text-sm font-semibold text-neutral-500 flex items-center max-h-10 h-full gap-1">
-                    Minha Conta
+                <Link v-if="user === null" :href="route('login')" class="text-sm font-semibold text-neutral-500 flex items-center max-h-10 h-full gap-1">
+                    Entrar
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                         <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
                     </svg>
-                </button>
+                </Link>
+                <Link v-else :href="route('login')" class="text-sm font-semibold text-neutral-500 flex items-center max-h-10 h-full gap-1">
+                     Ola, {{user.name}}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                        <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
+                    </svg>
+                </Link>
                 <button class="text-sm font-semibold bg-orange-600 flex items-center p-2.5 rounded-md gap-1 text-slate-50 max-h-10 h-full Botao-Header">
                     Anuncie Agora
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
@@ -28,7 +35,8 @@
 
 <script>
 export default {
-    name: "HeaderView"
+    name: "HeaderView",
+    props: ['user']
 }
 </script>
 
