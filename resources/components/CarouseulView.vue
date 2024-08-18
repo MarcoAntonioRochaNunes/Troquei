@@ -47,6 +47,7 @@ export default defineComponent({
 <style>
 .carousel{
     border-radius: 15px;
+    height: 100%;
 }
 .carousel__pagination{
     /* display: none; */

@@ -1,5 +1,5 @@
 <template>
-    <HeaderView />
+    <HeaderView :user="user" />
     <section class="grid text-center justify-center">
         <h2 class="font-normal text-xl text-neutral-500">
             Aqui voce encontra o que tanto procura!
@@ -108,12 +108,8 @@ export default {
         CategoriaView,
         ListaProdutosDois,
     },
-    props:{
-        title:{
-            type: String,
-            required: true,
-        }
-    },
+    props:['user'],
+
     data() {
         return {
 
