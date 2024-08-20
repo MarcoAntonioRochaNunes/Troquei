@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Estado;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,10 +14,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // dd(Auth::user());
+        $estados = Estado::all();
 
-        $teste = "Ola, Teste.";
         return Inertia::render('Home', [
+            'estados' => $estados,
             'user' => Auth::user(),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
