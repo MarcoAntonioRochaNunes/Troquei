@@ -89,16 +89,16 @@
             <h1 class="font-semibold text-2xl text-neutral-700">Categorias</h1>
         </CategoriaView>
 
-        <ListaProdutosDois class="relative" />
+        <ListaProdutosDois class="relative mb-10" />
     </section>
 </template>
 
 <script>
-import HeaderView from "../../components/HeaderView.vue";
-import CarouselView from "../../components/CarouseulView.vue";
-import ListaProdutos from "../../components/ListaProdutos.vue";
-import CategoriaView from "../../components/CategoriaView.vue";
-import ListaProdutosDois from "../../components/ListaProdutosDois.vue";
+import HeaderView from "@/Components/HeaderView.vue";
+import CarouselView from "@/Components/CarouseulView.vue";
+import ListaProdutos from "@/Components/ListaProdutos.vue";
+import CategoriaView from "@/Components/CategoriaView.vue";
+import ListaProdutosDois from "@/Components/ListaProdutosDois.vue";
 
 export default {
     components: {
