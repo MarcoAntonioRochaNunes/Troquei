@@ -1,57 +1,76 @@
 <template>
-  <Carousel id="gallery" :items-to-show="1" :wrap-around="false" v-model="currentSlide">
-    <Slide v-for="slide in 10" :key="slide">
-      <div class="carousel__item">{{ slide }}</div>
+  <Carousel>
+    <Slide v-for="(slide, index) in items" :key="index">
+        <div class="carousel__item">
+            <img class="object-cover h-full w-full rounded-xl" :src="slide.imageUrl" alt="">
+        </div>
     </Slide>
-  </Carousel>
 
-  <Carousel
-    id="thumbnails"
-    :items-to-show="4"
-    :wrap-around="true"
-    v-model="currentSlide"
-    ref="carousel"
-  >
-    <Slide v-for="slide in 10" :key="slide">
-      <div class="carousel__item" @click="slideTo(slide - 1)">{{ slide }}</div>
-    </Slide>
+    <template #addons>
+      <Navigation />
+      <Pagination />
+    </template>
   </Carousel>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
-import { Carousel, Slide } from 'vue3-carousel'
+import { Carousel, Pagination, Navigation, Slide } from 'vue3-carousel'
 
 import 'vue3-carousel/dist/carousel.css'
 
+
 export default defineComponent({
-  name: 'WrapAround',
+  name: 'Basic',
+  props:['items'],
   components: {
     Carousel,
     Slide,
-  },
-  data: () => ({
-    currentSlide: 0,
-  }),
-  methods: {
-    slideTo(val) {
-      this.currentSlide = val
-    },
+    Pagination,
+    Navigation,
   },
 })
 </script>
+<style>
+    .carousel__item{
+        max-width: 710px;
+        width: 100%;
+        max-height: 500px;
+        height: 100%;
+        /* background-color: #fff; */
+    }
 
-<style lang="stylus">
-#gallery {
-  .carousel__item {
-    height: 300px;
-  }
-}
+    .carousel__pagination-button::after{
+        background-color: white;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+    }
 
-#thumbnails {
-  .carousel__item {
-    min-height: 100px;
-    cursor: pointer;
-  }
-}
+    .carousel__pagination-button.carousel__pagination-button--active::after{
+        background-color: rgb(234 88 12 / 1);
+        width: 10px;
+        height: 10px;
+    }
+
+    .carousel__next,
+    .carousel__prev{
+        color: white;
+        transition: .5s;
+        border-radius: 10%;
+    }
+
+    .carousel__next:hover,
+    .carousel__prev:hover{
+
+        background-color: white;
+        color: #444;
+        border-radius: 25%;
+    }
+
+    .carousel__pagination{
+        position: absolute;
+        top: 10px;
+        right: 20px;
+    }
 </style>

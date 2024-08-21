@@ -14,4 +14,10 @@ class ProdutoController extends Controller
             'user' => Auth::user(),
         ]);
     }
+    public function index2()
+    {
+        return Inertia::render('ProdutoDois', [
+            'user' => Auth::user(),
+        ]);
+    }
 }
