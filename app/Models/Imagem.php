@@ -16,12 +16,9 @@ class Imagem extends Model
         'id',
         'url',
         'principal',
-        'user_id',
+
 
     ];
 
-    public function usuario(){
 
-        return $this->belongsTo(User::class, 'id', 'user_id');
-    }
 }

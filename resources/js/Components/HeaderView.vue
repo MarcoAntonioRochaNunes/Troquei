@@ -57,7 +57,7 @@ export default {
     }
     #lupa{
         position: absolute;
-        background: url("/resources/assets/Lupa.svg") no-repeat center center;
+        background: url("/assets/Lupa.svg") no-repeat center center;
           text-indent: -150px;
           cursor: pointer;
           top: 8px;

@@ -9,7 +9,7 @@ use Inertia\Inertia;
 
 Route::get('/', [HomeController::class, 'index'])->name('homeInicio');
 // Route::get('/produto', [ProdutoController::class, 'index'])->name('ProdutoHome');
-Route::get('/produto/{id}', [ProdutoController::class, 'index2'])->name('ProdutoHome2');
+Route::get('/produto/{id}', [ProdutoController::class, 'index'])->name('ProdutoHome');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

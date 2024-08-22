@@ -31,8 +31,7 @@ class HomeController extends Controller
 
     public function produtos()
     {
-        $data = Anuncio::with('anuncioFoto', 'estado')->get();
-
+        $data = Anuncio::with('anuncioFoto', 'estado', 'usuario')->get();
 
         return $data;
     }
