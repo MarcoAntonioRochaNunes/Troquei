@@ -15,9 +15,6 @@ return new class extends Migration {
             $table->id();
             $table->string('url');
             $table->boolean('principal');
-            $table->foreignIdFor(User::class)
-                ->constrained()
-                ->onDelete('cascade');
             $table->timestamps();
         });
     }

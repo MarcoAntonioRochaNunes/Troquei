@@ -44,4 +44,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function estado(){
+
+        return $this->belongsTo(Estado::class,'estado_id');
+    }
+    public function foto(){
+
+        return $this->belongsTo(Imagem::class,'imagem_id');
+    }
 }
