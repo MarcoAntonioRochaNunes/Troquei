@@ -79,7 +79,7 @@
                 </div>
             </div>
         </div>
-        <ListaProdutos :image="laptop">
+        <ListaProdutos :produtos="produtos">
             <h1 class="font-semibold text-2xl text-neutral-700">
                 Novos Produtos
             </h1>
@@ -108,7 +108,7 @@ export default {
         CategoriaView,
         ListaProdutosDois,
     },
-    props:['user'],
+    props:['user', 'produtos'],
 
     data() {
         return {
