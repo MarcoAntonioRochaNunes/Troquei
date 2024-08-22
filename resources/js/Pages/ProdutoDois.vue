@@ -1,6 +1,7 @@
 <template>
+    <HeaderView :user="user" />
   <div class="bg-white">
-    <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+    <div class="mx-auto max-w-2xl px-4 pb-1 pt-1 sm:px-6 sm:pb-1 sm:pt-5 lg:max-w-7xl lg:px-8">
       <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
         <!-- Image gallery -->
         <TabGroup as="div" class="flex flex-col-reverse">
@@ -13,23 +14,23 @@
                 <span class="absolute inset-0 overflow-hidden rounded-md">
                   <img :src="image.src" alt="" class="h-full w-full object-cover object-center" />
                 </span>
-                <span :class="[selected ? 'ring-indigo-500' : 'ring-transparent', 'pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2']" aria-hidden="true" />
+                <span :class="[selected ? 'ring-orange-500' : 'ring-transparent', 'pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2']" aria-hidden="true" />
               </Tab>
             </TabList>
           </div>
 
-          <TabPanels class="aspect-h-1 aspect-w-1 w-full">
-            <TabPanel v-for="image in product.images" :key="image.id">
-              <img :src="image.src" :alt="image.alt" class="h-full w-full object-cover object-center sm:rounded-lg" />
+          <TabPanels class="aspect-h-1 aspect-w-1 w-full max-h-[600px]">
+            <TabPanel v-for="image in product.images" :key="image.id" >
+              <img :src="image.src" :alt="image.alt" class="h-full w-full object-cover object-center sm:rounded-lg max-h-[600px]" />
             </TabPanel>
           </TabPanels>
         </TabGroup>
 
         <!-- Product info -->
         <div class="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-          <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ product.name }}</h1>
-            <span class="flex justify-between mt-5">
-                <span class="flex gap-2 items-center"><img src="/assets/gps.svg" alt="" width="16">
+          <h1 class="text-3xl font-bold tracking-tight corPrincipal">{{ product.name }}</h1>
+            <span class="flex justify-between mt-5 text-xs items-center font-medium text-neutral-400">
+                <span class="flex gap-2 items-center text-sm corPrincipal"><img src="/assets/gps.svg" alt="" width="16">
                     Brasilia - DF
                 </span>
                 Hoje, 9:15
@@ -37,12 +38,12 @@
 
           <div class="mt-3">
             <h2 class="sr-only">Product information</h2>
-            <p class="text-3xl tracking-tight text-gray-900">{{ product.price }}</p>
+            <p class="text-3xl tracking-tight corPrincipal font-semibold">{{ product.price }}</p>
           </div>
 
             <div>
-                <span class="flex gap-2 pt-5"><img src="/assets/check.svg" alt=""> Negociavel</span>
-                <span class="text-xs">*esse valor é negociável</span>
+                <span class="flex gap-2 pt-5 negociavel"><img src="/assets/check.svg" alt=""> Negociavel</span>
+                <span class="text-xs text-neutral-300">*esse valor é negociável</span>
             </div>
 
           <!-- Reviews -->
@@ -59,7 +60,7 @@
           <div class="mt-6">
             <h3 class="sr-only">Descricao</h3>
 
-            <div class="space-y-6 text-base text-gray-700" v-html="product.description" />
+            <div class="space-y-6 text-base corPrincipal" v-html="product.description" />
           </div>
 
           <form class="mt-6">
@@ -79,7 +80,7 @@
             </div> -->
 
             <div class="mt-10 flex">
-              <button type="submit" class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full">Comprar</button>
+              <button type="submit" class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-orange-600 px-8 py-3 text-base font-medium text-white hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full">Comprar</button>
 <!--
               <button type="button" class="ml-4 flex items-center justify-center rounded-md px-3 py-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500">
                 <HeartIcon class="h-6 w-6 flex-shrink-0" aria-hidden="true" />
@@ -88,6 +89,10 @@
             </div>
           </form>
 
+            <div class="mt-10">
+                <span class="flex gap-2 text-xs corPrincipal font-medium"><img src="/assets/eye.svg" alt="" width="16"> 80 Visualizações neste anúncio</span>
+            </div>
+
           <section aria-labelledby="details-heading" class="mt-12">
             <h2 id="details-heading" class="sr-only">Additional details</h2>
 
@@ -95,10 +100,10 @@
               <Disclosure as="div" v-for="detail in product.details" :key="detail.name" v-slot="{ open }">
                 <h3>
                   <DisclosureButton class="group relative flex w-full items-center justify-between py-6 text-left">
-                    <span :class="[open ? 'text-indigo-600' : 'text-gray-900', 'text-sm font-medium']">{{ detail.name }}</span>
+                    <span :class="[open ? 'text-orange-500' : 'text-gray-900', 'text-sm font-medium']">{{ detail.name }}</span>
                     <span class="ml-6 flex items-center">
                       <PlusIcon v-if="!open" class="block h-6 w-6 text-gray-400 group-hover:text-gray-500" aria-hidden="true" />
-                      <MinusIcon v-else class="block h-6 w-6 text-indigo-400 group-hover:text-indigo-500" aria-hidden="true" />
+                      <MinusIcon v-else class="block h-6 w-6 text-orange-400 group-hover:text-orange-500" aria-hidden="true" />
                     </span>
                   </DisclosureButton>
                 </h3>
@@ -132,6 +137,7 @@ import {
 } from '@headlessui/vue'
 import { StarIcon } from '@heroicons/vue/20/solid'
 import { HeartIcon, MinusIcon, PlusIcon } from '@heroicons/vue/24/outline'
+import HeaderView from '@/Components/HeaderView.vue'
 
 const product = {
   name: 'Zip Tote Basket',
@@ -146,13 +152,13 @@ const product = {
       alt: 'Angled front view with bag zipped and handles upright.',
     },
     {
-      id: 1,
+      id: 2,
       name: 'Angled view',
-      src: 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-01.jpg',
+      src: '/img/caneca.jpg',
       alt: 'Angled front view with bag zipped and handles upright.',
     },
     {
-      id: 1,
+      id: 3,
       name: 'Angled view',
       src: 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-01.jpg',
       alt: 'Angled front view with bag zipped and handles upright.',
@@ -196,3 +202,21 @@ const product = {
 
 const selectedColor = ref(product.colors[0])
 </script>
+<script>
+    export default {
+        components:[HeaderView],
+        props:['user'],
+    }
+</script>
+<style scoped>
+    .corPrincipal{
+        color: #444;
+    }
+    .negociavel{
+        color: green;
+    }
+    .headlessui-tabs-panel-5{
+        max-height: 700px;
+        height: 100%;
+    }
+</style>

@@ -29,21 +29,21 @@ class Anuncio extends Model
 
     public function anuncioFoto(){
 
-        return $this->hasMany(AnuncioImagem::class, 'id', 'anuncio_id');
+        return $this->hasMany(AnuncioImagem::class, 'anuncio_id');
     }
 
     public function usuario(){
 
-        return $this->belongsTo(User::class, 'id', 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function estado(){
 
-        return $this->belongsTo(Estado::class, 'id', 'estado_id');
+        return $this->belongsTo(Estado::class, 'estado_id');
     }
 
     public function categoria(){
 
-        return $this->belongsTo(Categoria::class, 'id', 'categoria_id');
+        return $this->belongsTo(Categoria::class, 'categoria_id');
     }
 }
