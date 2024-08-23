@@ -1,5 +1,6 @@
 <template>
     <HeaderView :user="user" />
+
   <div class="bg-white">
     <div class="mx-auto max-w-2xl px-4 pb-1 pt-1 sm:px-6 sm:pb-1 sm:pt-5 lg:max-w-7xl lg:px-8">
       <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
@@ -89,9 +90,9 @@
             </div>
           </form>
 
-            <div class="mt-10">
+            <!-- <div class="mt-10">
                 <span class="flex gap-2 text-xs corPrincipal font-medium"><img src="/assets/eye.svg" alt="" width="16"> 80 Visualizações neste anúncio</span>
-            </div>
+            </div> -->
 
           <section aria-labelledby="details-heading" class="mt-12">
             <h2 id="details-heading" class="sr-only">Additional details</h2>
@@ -109,7 +110,9 @@
                 </h3>
                 <DisclosurePanel as="div" class="prose prose-sm pb-6">
                   <ul role="list">
-                    <li v-for="item in produto.usuario" :key="item">{{ item }}</li>
+                    <!-- <li v-for="item in produto.usuario" :key="item">{{ item }}</li> -->
+                    <li><h2>Nome : {{produto.usuario.name}}</h2></li>
+                    <li><h2>Mora : {{produto.usuario.estado.nome}} - {{produto.usuario.estado.uf}}</h2></li>
                   </ul>
                 </DisclosurePanel>
               </Disclosure>

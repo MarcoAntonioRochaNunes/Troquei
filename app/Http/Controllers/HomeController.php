@@ -31,10 +31,22 @@ class HomeController extends Controller
 
     public function produtos()
     {
-        $data = Anuncio::with('anuncioFoto', 'estado', 'usuario')->get();
+        $data = Anuncio::with('anuncioFoto', 'estado', 'usuario', 'usuario.foto', 'usuario.estado')
+        ->orderBy('created_at', 'asc')
+        ->orderBy('views', 'desc')
+        ->limit(8)
+        ->get();
 
         return $data;
     }
+
+    public function produtosCategoria(Request $request)
+    {
+        $data = Anuncio::with('anuncioFoto', 'estado', 'usuario', 'usuario.foto', 'usuario.estado')->where('categoria_id')->get();
+
+        return $data;
+    }
+
 
 
 }

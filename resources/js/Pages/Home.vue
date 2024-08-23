@@ -29,7 +29,7 @@
             </form>
         </div>
 
-        <div class="bannerTwo flex gap-4 my-10 px-5 max-w-screen-xl">
+        <div class="bannerTwo flex gap-4 my-10 max-w-screen-xl">
             <CarouselView
                 :items="items"
                 :type="nome"
