@@ -1,15 +1,14 @@
 <template>
-    <section class="px-5 text-left ">
+    <section class="text-left ">
         <slot></slot>
 
-        <div class="flex gap-5 items-center flex-wrap max-w-screen-xl">
+        <div class="flex gap-5 justify-center items-center flex-wrap max-w-screen-xl">
             <div v-for="produto in produtos" :key="produto.id" class="mt-10 w-[280px] h-[450px] border-neutral-300 border-double border-4 rounded-xl relative">
                 <a :href="generateUrl(produto.id)">
                     <div class=" max-h-[260px] max-w-[260px] w-full h-full rounded-lg m-auto mt-2 overflow-hidden relative">
                         <span class="absolute text-white text-xs px-2 py-1 bg-[#FF6E00] rounded-r-md bottom-2 left-[5px]z-100">Pouco Usado</span>
-                        {{produto.usuario.foto}}
                         <div v-if="produto.anuncio_foto" class="absolute h-[40px] w-[40px] rounded-full right-1 top-1 border-solid border-2 border-[#FF6E00] overflow-hidden">
-                            <img class="w-full h-full object-cover" :src="produto.anuncio_foto[0]" alt="">
+                            <img class="w-full h-full object-cover" :src="produto.usuario.foto.url" alt="">
                         </div>
                         <div v-for="foto in produto.anuncio_foto" :key="foto.id" class="max-h-[260px] max-w-[260px] w-full h-full">
                             <img v-if="foto.principal == 1" class="w-full h-full object-cover" :src="produto.anuncio_foto[0].url" alt="Product Image">

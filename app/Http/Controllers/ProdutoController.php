@@ -13,6 +13,7 @@ class ProdutoController extends Controller
     {
 
         $produto = $this->produto($id);
+        $produtosRel = $this->produtosRelacionados($id);
 
         return Inertia::render('Produto', [
             'produto' => $produto,
@@ -22,10 +23,21 @@ class ProdutoController extends Controller
 
     public function produto($id){
 
-        $produto = Anuncio::where('id', $id)->with('anuncioFoto', 'categoria', 'usuario')->first();
+        $produto = Anuncio::where('id', $id)->with('anuncioFoto', 'categoria', 'usuario.foto', 'usuario.estado' )->first();
 
         // dd($produto);
         return $produto;
     }
+
+    public function produtosRelacionados($id){
+
+        $item = Anuncio::where('id', $id)->first()->only('categoria_id');
+
+        $produtos = Anuncio::where('categoria_id', $item['categoria_id'])->with('anuncioFoto', 'categoria', 'usuario.foto', 'usuario.estado' )->get();
+
+        // dd($produtos);
+        return $produtos;
+    }
+
 
 }
