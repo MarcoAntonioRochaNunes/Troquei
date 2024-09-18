@@ -85,7 +85,7 @@
             </h1>
         </ListaProdutos>
 
-        <CategoriaView class="mb-10">
+        <CategoriaView :categorias="categorias" class="mb-10">
             <h1 class="font-semibold text-2xl text-neutral-700">Categorias</h1>
         </CategoriaView>
 
@@ -108,7 +108,7 @@ export default {
         CategoriaView,
         ListaProdutosDois,
     },
-    props:['user', 'produtos'],
+    props:['user', 'produtos', 'categorias'],
 
     data() {
         return {
