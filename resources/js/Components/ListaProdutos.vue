@@ -1,21 +1,21 @@
 <template>
     <section class="text-left ">
         <slot></slot>
-
         <div class="flex gap-5 justify-center items-center flex-wrap max-w-screen-xl">
             <div v-for="produto in produtos" :key="produto.id" class="mt-10 w-[280px] h-[450px] border-neutral-300 border-double border-4 rounded-xl relative">
                 <a :href="generateUrl(produto.id)">
+
                     <div class=" max-h-[260px] max-w-[260px] w-full h-full rounded-lg m-auto mt-2 overflow-hidden relative">
                         <span class="absolute text-white text-xs px-2 py-1 bg-[#FF6E00] rounded-r-md bottom-2 left-[5px]z-100">Pouco Usado</span>
                         <div v-if="produto.anuncio_foto" class="absolute h-[40px] w-[40px] rounded-full right-1 top-1 border-solid border-2 border-[#FF6E00] overflow-hidden">
-                            <img class="w-full h-full object-cover" :src="produto.usuario.foto.url" alt="">
+                            <img class="w-full h-full object-cover" :src="produto.usuario?.foto?.url || '/img/caneca.jpg'" alt="">
                         </div>
                         <div v-for="foto in produto.anuncio_foto" :key="foto.id" class="max-h-[260px] max-w-[260px] w-full h-full">
                             <img v-if="foto.principal == 1" class="w-full h-full object-cover" :src="produto.anuncio_foto[0].url" alt="Product Image">
                         </div>
                     </div>
 
-                    <div class="flex justify-between mt-3 items-center px-3">
+                    <div class="flex justify-between mt-3 gap-3 items-center px-3">
                         <p class="font-medium text-base text-neutral-700">{{produto.titulo}}</p>
                         <span class="font-medium text-sm text-neutral-500">{{produto.preco}}</span>
                     </div>

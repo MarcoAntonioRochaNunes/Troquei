@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(EstadoSeeder::class);
         $this->call(CategoriaSeeder::class);
+        $this->call(AnuncioSeeder::class);
+        $this->call(AnuncioImagemSeeder::class);
 
         User::factory()->create([
             'name' => 'Teste User',
