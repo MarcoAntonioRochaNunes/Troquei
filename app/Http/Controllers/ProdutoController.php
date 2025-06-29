@@ -34,7 +34,6 @@ class ProdutoController extends Controller
 
         $produtos = Anuncio::where('categoria_id', $item['categoria_id'])->with('anuncioFoto', 'categoria', 'usuario.foto', 'usuario.estado' )->get();
 
-        // dd($produtos);
         return $produtos;
     }
 
