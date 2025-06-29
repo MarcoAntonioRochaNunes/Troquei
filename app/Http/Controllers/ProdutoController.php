@@ -25,7 +25,6 @@ class ProdutoController extends Controller
 
         $produto = Anuncio::where('id', $id)->with('anuncioFoto', 'categoria', 'usuario.foto', 'usuario.estado' )->first();
 
-        // dd($produto);
         return $produto;
     }
 
